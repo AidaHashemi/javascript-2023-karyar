@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 100vh;
   max-height: 100vh;
-  background: #262626;
+  background: #1b2431;
   padding: 2rem;
 }
 
@@ -115,18 +115,18 @@ body {
   letter-spacing: 1px;
   box-shadow: 0 2px 5px #333;
 }
-.input::placeholder {
+/* .input::placeholder {
   color: #ffffff88;
-}
+} */
 .add-or-undo-box {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 .add-card-btn {
   width: 6rem;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border: none;
   outline: none;
   border-radius: 0.4rem;
@@ -140,8 +140,8 @@ body {
 .modal-edit-card .add-card-btn {
   background-color: seagreen;
 }
-.backspace-icon {
-  font-size: 1.3rem;
+.close-window {
+  font-size: 1.8rem;
   color: #555;
   cursor: pointer;
 }
@@ -177,18 +177,21 @@ body {
   pointer-events: none;
 }
 
-.item-pen {
-  color: #666;
-  font-size: 0.8rem;
-  font-weight: 700;
-  background-color: rgba(207, 207, 207, 0.425);
-  padding: 0.5rem;
-  border-radius: 50%;
+.item-bar {
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: bolder;
+  background-color: rgba(222, 184, 135, 0.486);
+  padding: 0.4rem;
+  border-radius: 5px;
   cursor: pointer;
   visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.item:hover .item-pen {
+.item:hover .item-bar {
   visibility: visible;
 }
 .show-icons {

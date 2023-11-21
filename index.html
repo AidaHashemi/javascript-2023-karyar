@@ -16,14 +16,19 @@
   <body>
     <section class="main-container">
       <section class="to-do-app">
-        <section class="do-list">
+        <section class="do-list" id="do-list">
           <div class="header">
             <h2>To Do</h2>
             <i class="far fa-list-alt"></i>
           </div>
           <div class="add-cards-box">
-            <input type="button" value="+ add a card" class="add-a-card-btn" />
-            <div class="modal-edit-card">
+            <input
+              type="button"
+              value="+ add a card"
+              class="add-a-card-btn"
+              id="btn-orange"
+            />
+            <div class="modal-edit-card" id="modal-edit-card">
               <form id="edit-form" class="form">
                 <input
                   type="text"
@@ -43,7 +48,7 @@
                 </div>
               </form>
             </div>
-            <div class="modal-add-card">
+            <div class="modal-add-card" id="modal-add-card">
               <form id="add-form" class="form">
                 <input
                   type="text"
@@ -59,12 +64,22 @@
                   >
                     Add card
                   </button>
-                  <i class="fas fa-backspace backspace-icon"></i>
+                  <i class="far fa-window-close close-window"></i>
                 </div>
               </form>
             </div>
           </div>
-          <ul class="all-items" id="all-do-items"></ul>
+          <ul class="all-items" id="all-do-items">
+            <!-- <li class="item">
+              <span class="item-title">item</span>
+              <i class="fas fa-bars item-bar"></i>
+              <span class="show-icons">
+                <i class="far fa-minus-square"></i>
+                <i class="far fa-edit"></i>
+                <i class="far fa-check-square"></i>
+              </span>
+            </li> -->
+          </ul>
         </section>
         <section class="done-list">
           <div class="header">
@@ -75,6 +90,6 @@
         </section>
       </section>
     </section>
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
