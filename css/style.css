@@ -1,0 +1,215 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  background: #262626;
+  padding: 2rem;
+}
+
+.to-do-app {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.do-list,
+.done-list {
+  width: 400px;
+  max-height: 100%;
+  border-radius: 0.5rem;
+  background-color: #fffdd0;
+  padding: 0.9rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
+/*header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 1.4rem;
+}
+
+.header i {
+  font-size: 1.3rem;
+}
+/*add a card part */
+.add-a-card-btn {
+  width: 100%;
+  padding: 1rem 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  background-color: #ff7f11;
+  box-shadow: 0 2px 10px #333333a6;
+  text-align: left;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.8s;
+}
+
+.add-a-card-btn:hover {
+  background-color: #ff8011d8;
+  color: #333;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* modal */
+
+.modal-add-card,
+.modal-edit-card {
+  width: 100%;
+  display: none;
+}
+.form {
+  width: 100%;
+  height: 120px;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px gray;
+  background-color: rgba(131, 136, 141, 0.356);
+  border-radius: 0.4rem;
+}
+
+.input {
+  width: 100%;
+  padding-inline: 0.5rem;
+  min-height: 3rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  background-color: #5755557a;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 5px #333;
+}
+.input::placeholder {
+  color: #ffffff88;
+}
+.add-or-undo-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.add-card-btn {
+  width: 6rem;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  background-color: #0c66e4;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.modal-edit-card .add-card-btn {
+  background-color: seagreen;
+}
+.backspace-icon {
+  font-size: 1.3rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/* do items  */
+
+.all-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.item {
+  width: 100%;
+  background-color: #ffffff4d;
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: 0.8s;
+}
+.item:hover {
+  background-color: #ffffff8f;
+}
+.item-title {
+  font-size: 1rem;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.item-pen {
+  color: #666;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: rgba(207, 207, 207, 0.425);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.item:hover .item-pen {
+  visibility: visible;
+}
+.show-icons {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0.2rem;
+  background-color: #adadad65;
+  border-radius: 0.2rem;
+  visibility: hidden;
+}
+
+.show-icons i {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.show-icons i:hover {
+  background-color: #adadadc7;
+}

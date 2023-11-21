@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fonts/css/all.min.css" />
+    <link rel="stylesheet" href="fonts/css/fontawesome.min.css" />
+    <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>2023 JS</title>
+  </head>
+  <body>
+    <section class="main-container">
+      <section class="to-do-app">
+        <section class="do-list">
+          <div class="header">
+            <h2>To Do</h2>
+            <i class="far fa-list-alt"></i>
+          </div>
+          <div class="add-cards-box">
+            <input type="button" value="+ add a card" class="add-a-card-btn" />
+            <div class="modal-edit-card">
+              <form id="edit-form" class="form">
+                <input
+                  type="text"
+                  class="input"
+                  id="edit-task-input"
+                  placeholder="Edit your card ..."
+                />
+                <div class="add-or-undo-box">
+                  <button
+                    class="add-card-btn"
+                    type="submit"
+                    id="edit-this-card-btn"
+                  >
+                    Edit
+                  </button>
+                  <i class="fas fa-backspace backspace-icon"></i>
+                </div>
+              </form>
+            </div>
+            <div class="modal-add-card">
+              <form id="add-form" class="form">
+                <input
+                  type="text"
+                  class="input"
+                  id="add-task-input"
+                  placeholder="Enter a title for this card..."
+                />
+                <div class="add-or-undo-box">
+                  <button
+                    class="add-card-btn"
+                    type="submit"
+                    id="add-new-card-btn"
+                  >
+                    Add card
+                  </button>
+                  <i class="fas fa-backspace backspace-icon"></i>
+                </div>
+              </form>
+            </div>
+          </div>
+          <ul class="all-items" id="all-do-items"></ul>
+        </section>
+        <section class="done-list">
+          <div class="header">
+            <h2>Done</h2>
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <ul class="all-items" id="all-done-items"></ul>
+        </section>
+      </section>
+    </section>
+    <script src="app.js"></script>
+  </body>
+</html>
