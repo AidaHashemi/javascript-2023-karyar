@@ -70,7 +70,28 @@ allDoItems.addEventListener("click", (e) => {
 
   if (e.target.classList.contains("check-icon")) {
     const id = e.target.parentElement.id;
-    alert("checked");
+    getCheckedItem(id);
+    deleteDoItem(id);
+  }
+});
+
+allDoneItems.addEventListener("click", (e) => {
+  if (e.target.classList.contains("item-bar")) {
+    const showIcons = e.target.parentElement.querySelector(".show-icons");
+    showIcons.style.visibility = "visible";
+    e.target.style.visibility = "hidden";
+  }
+  if (e.target.classList.contains("delete-icon")) {
+    const id = e.target.parentElement.id;
+    const confirmResponse = confirm("Do you want to delete this item?!");
+    if (confirmResponse) {
+      deleteDoneItem(id);
+    }
+  }
+  if (e.target.classList.contains("undo-icon")) {
+    const id = e.target.parentElement.id;
+    getUndoItem(id);
+    deleteDoneItem(id);
   }
 });
 
@@ -103,8 +124,23 @@ const creatItem = async function (data) {
   });
 };
 
+const createDoneItem = async function (data) {
+  const respone = await fetch(url + `/doneItems`, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 const deleteDoItem = async function (id) {
   const respone = await fetch(url + `/doItems/${id}`, {
+    method: "DELETE",
+  });
+};
+const deleteDoneItem = async function (id) {
+  const respone = await fetch(url + `/doneItems/${id}`, {
     method: "DELETE",
   });
 };
@@ -124,6 +160,23 @@ const editItem = async function (data) {
     },
   });
 };
+// check item
+const getCheckedItem = async function (id) {
+  const respone = await fetch(url + `/doItems/${id}`);
+  const checkedItem = await respone.json();
+  const data = {
+    title: checkedItem.title,
+  };
+  createDoneItem(data);
+};
+const getUndoItem = async function (id) {
+  const respone = await fetch(url + `/doneItems/${id}`);
+  const undoItem = await respone.json();
+  const data = {
+    title: undoItem.title,
+  };
+  creatItem(data);
+};
 
 const getDoItems = async function () {
   const respone = await fetch(url + "/doItems");
@@ -141,6 +194,22 @@ const getDoItems = async function () {
   }
 };
 
+const getDoneItems = async function () {
+  const respone = await fetch(url + "/doneItems");
+  const items = await respone.json();
+  for (const item of items) {
+    allDoneItems.innerHTML += `<li class="item" data-id="${item.id}">
+    <span class="item-title">${item.title}</span>
+    <i class="fas fa-bars item-bar"></i>
+    <span class="show-icons" id="${item.id}">
+      <i class="far fa-minus-square delete-icon"></i>
+      <i class="fas fa-undo undo-icon"></i>
+    </span>
+  </li>`;
+  }
+};
+
 // ________________________________
 btnOrange.focus();
 getDoItems();
+getDoneItems();
