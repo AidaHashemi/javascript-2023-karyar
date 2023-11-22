@@ -10,6 +10,7 @@ const addTaskInput = document.getElementById("add-task-input");
 const addCardModal = document.getElementById("modal-add-card");
 const closeWindow = document.querySelector(".close-window");
 const allDoItems = document.getElementById("all-do-items");
+const allDoneItems = document.getElementById("all-done-items");
 // url
 const url = "http://localhost:3004";
 //event listeners
@@ -66,6 +67,11 @@ allDoItems.addEventListener("click", (e) => {
     getEditItem(id);
     editTaskInput.focus();
   }
+
+  if (e.target.classList.contains("check-icon")) {
+    const id = e.target.parentElement.id;
+    alert("checked");
+  }
 });
 
 // declaring object variable
@@ -103,6 +109,12 @@ const deleteDoItem = async function (id) {
   });
 };
 
+//  edit item to-do
+const getEditItem = async function (id) {
+  const response = await fetch(url + `/doItems/${id}`);
+  const item = await response.json();
+  editTaskInput.value = item.title;
+};
 const editItem = async function (data) {
   const respone = await fetch(url + `/doItems/${editForm.id}`, {
     method: "PATCH",
@@ -112,12 +124,7 @@ const editItem = async function (data) {
     },
   });
 };
-// get single item to-do
-const getEditItem = async function (id) {
-  const response = await fetch(url + `/doItems/${id}`);
-  const item = await response.json();
-  editTaskInput.value = item.title;
-};
+
 const getDoItems = async function () {
   const respone = await fetch(url + "/doItems");
   const items = await respone.json();
@@ -128,7 +135,7 @@ const getDoItems = async function () {
     <span class="show-icons" id="${item.id}">
       <i class="far fa-minus-square delete-icon"></i>
       <i class="far fa-edit edit-icon"></i>
-      <i class="far fa-check-square"></i>
+      <i class="far fa-check-square check-icon"></i>
     </span>
   </li>`;
   }
