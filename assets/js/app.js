@@ -40,6 +40,7 @@ addForm.addEventListener("submit", async (e) => {
   } else {
     alert("you should write something to add...");
   }
+  addTaskInput.value = "";
 });
 
 editForm.addEventListener("submit", async (e) => {
@@ -56,6 +57,7 @@ editForm.addEventListener("submit", async (e) => {
   } else {
     alert("you should write something to edit...");
   }
+  addTaskInput.value = "";
 });
 
 allDoItems.addEventListener("click", async (e) => {
