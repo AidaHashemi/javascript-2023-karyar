@@ -9,17 +9,17 @@
     />
     <link rel="stylesheet" href="fonts/css/all.min.css" />
     <link rel="stylesheet" href="fonts/css/fontawesome.min.css" />
-    <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png" /> -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>2023 JS</title>
+    <title>To-Do List</title>
   </head>
   <body>
     <section class="main-container">
       <section class="to-do-app">
         <section class="do-list" id="do-list">
           <div class="header">
-            <h2>To Do</h2>
-            <i class="far fa-list-alt"></i>
+            <h2 title="To-Do Cute ✔">To Do</h2>
+            <i class="far fa-list-alt" title="Do List"></i>
           </div>
           <div class="add-cards-box">
             <input
@@ -28,6 +28,7 @@
               class="add-a-card-btn"
               id="btn-orange"
             />
+            <!-- modal edit card  -->
             <div class="modal-edit-card" id="modal-edit-card">
               <form id="edit-form" class="form">
                 <input
@@ -44,10 +45,11 @@
                   >
                     Edit
                   </button>
-                  <i class="fas fa-backspace close-window"></i>
+                  <i class="fas fa-backspace close-edit-window"></i>
                 </div>
               </form>
             </div>
+            <!-- modal add card  -->
             <div class="modal-add-card" id="modal-add-card">
               <form id="add-form" class="form">
                 <input
@@ -64,7 +66,7 @@
                   >
                     Add card
                   </button>
-                  <i class="far fa-window-close close-window"></i>
+                  <i class="far fa-window-close close-add-window"></i>
                 </div>
               </form>
             </div>
@@ -73,8 +75,8 @@
         </section>
         <section class="done-list">
           <div class="header">
-            <h2>Done</h2>
-            <i class="fas fa-clipboard-check"></i>
+            <h2 title="Done ✔">Done</h2>
+            <i class="fas fa-clipboard-check" title="Done List"></i>
           </div>
           <ul class="all-items" id="all-done-items"></ul>
         </section>
